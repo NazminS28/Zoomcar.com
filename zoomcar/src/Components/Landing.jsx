@@ -37,20 +37,32 @@ export const Landing = () => {
        </VStack>
 
           <Divider/>
-          <Stack border="1px solid" p={5} direction={{base:"column", md:"row"}}>
-            <VStack border="1px solid">
-              <HStack>
-                <VStack textAlign="left">
-                    <Text>Your BFF headling for a vacay?</Text>
-                    <Text>fsdfhihfidshfihdsuh fdhfduhfs hfdufhdufhudhudhfd</Text>
+          <Stack justifyContent="space-around"   alignSelf="center" p={5} direction={{base:"column", md:"row"}}>
+            <VStack textAlign="left"  alignItems="flex-start" border="1px solid"  w="400px" >
+              <HStack >
+                <VStack >
+                    <Text as="b">Your BFF headling for a vacay?</Text>
+                    <Text p="3">You earn 500 in Z-Points. Your frinds gets 20% off on first booking</Text>
                 </VStack>
                 <VStack>
                   <Image w={100} h={200}  src='https://zoomcar-assets.zoomcar.com/images/original/207f2f9653395ea8b5b5acf04cd722aa1b88b0f0.png?1661344619'/>
                 </VStack>
               </HStack>
+                    <Text>REFER FRIENDS</Text> 
             </VStack>
-            <VStack border="1px solid" p={5}>
-
+            <VStack textAlign="left"  alignItems="flex-start" border="1px solid" w="400px" >
+            <HStack>
+                <VStack>
+                    <Text as="b">UP TO 20% OFF</Text>
+                    <Text>on your first booking from the app!</Text>
+                    <Text border="dashed" color="gray.400">Use Code: ZOOMNEW</Text>
+                </VStack>
+                <VStack>
+                  <Image w={100} h={200}  src='https://www.zoomcar.com/img/cellphone.png'/>
+                </VStack>
+              </HStack>
+                    <Text color="green" as="b">Install Zoomcar App now!</Text>
+           
             </VStack>
 
           </Stack>
@@ -97,8 +109,8 @@ Self drive cars from Zoomcar have given customers more control, privacy, and fre
     </vStack>
     
         <Text fontSize={80}  color="gray.200" as="b">Never</Text>
-        <Text fontSize={80} marginTop="-50px" color="gray.200" as="b">Never</Text>
-        <Text fontSize={80}  color="gray.200" as="b">Never</Text>
+        <Text fontSize={80} marginTop="-50px" color="gray.200" as="b">Stop</Text>
+        <Text fontSize={80}  color="gray.200" as="b">Living.</Text>
     
     </Stack>
   )

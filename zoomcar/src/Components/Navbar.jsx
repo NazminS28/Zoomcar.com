@@ -1,14 +1,17 @@
 import { Box, Container, Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, Flex, HStack, IconButton, Image, Spacer, Stack, Text, useDisclosure } from '@chakra-ui/react'
-import React from 'react'
+import React, { useContext } from 'react'
 import {AiOutlineMenu} from "react-icons/ai";
 import {CgProfile} from "react-icons/cg";
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import {GrLocation} from "react-icons/gr";
 import {RiFileCopy2Line} from "react-icons/ri";
 import {FiPhoneCall} from "react-icons/fi";
+import { AuthContext } from '../Context/AuthContext';
 
+// ammi G bol
 
 export const Navbar = () => {
+  const {userName , isAuth, LogOutUser} = useContext(AuthContext)
 
   const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -24,7 +27,7 @@ export const Navbar = () => {
    
       <HStack  bg="black" p={3}>
 
-<HStack spacing={5} border="1px solid" >
+<HStack spacing={5}  >
 <IconButton onClick={onOpen} variant='outline' color="white" fontSize={25} border="none" aria-label='Search database' icon={<AiOutlineMenu />} />
 <Link to="/">
 <Image src='https://www.zoomcar.com/build/98e56e8b0b91e8806885a22ac2bf69a7.png'></Image>
@@ -34,15 +37,72 @@ export const Navbar = () => {
 
 <Spacer></Spacer>
 
-<HStack spacing={20} border="1px solid ">
+<HStack spacing={10} >
+
+
+  <NavLink to="/bah">
   <HStack bg="white" p={3} borderRadius={25} spacing={5}>
     <Image src='https://www.zoomcar.com/build/e222e7ff96ffdd76290118718d52d71f.svg'/>
+  
     <Text>Become a Host</Text>
   </HStack>
-  <Text color="white"  fontSize={20} as="b">ZMS</Text>
-        <Link to="/login">
-        <Text color="white"  fontSize={20} as="b">Login/Signup</Text>
-        </Link>
+    </NavLink>
+
+  
+  <Link to="/policy">
+    
+    <Text color="white"  fontSize={15} fontWeight="semibold" >Policy</Text>
+    
+
+    </Link>
+
+    
+    <Link to="/contact">
+   
+    <Text color="white"  fontSize={15} fontWeight="semibold"  >Help & Support</Text>
+    
+    
+    </Link>
+
+    <Link to="/refer">
+
+    <Text color="white"  fontSize={15} fontWeight="semibold"  >Refer & Earn</Text>
+
+    </Link>
+
+    <Link to="/faq">
+
+    <Text color="white"  fontSize={15} fontWeight="semibold"  >Faqs</Text>
+    
+ 
+
+    </Link>
+
+    
+ {
+  isAuth && <Text color="white"  fontSize={15} fontWeight="semibold"  >{userName}</Text>
+ }
+
+{
+  isAuth==false ?  <Link to="/login">
+  
+    
+  <Text  color="white"  fontSize={15} fontWeight="semibold" >Login or Signup</Text>
+  
+</Link>
+:  <Text onClick={LogOutUser} color="white"  fontSize={15} fontWeight="semibold" >LogOut</Text>
+
+  
+    
+  
+  
+
+
+ }
+
+
+    
+
 </HStack>
 
 <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
@@ -70,7 +130,7 @@ export const Navbar = () => {
     </HStack>
     </Link>
 
-    <Link to="/log">
+    <Link to="/bah">
     <HStack bg="white" p={3} borderRadius={25} spacing={5}>
   
     <Image src='https://www.zoomcar.com/build/e222e7ff96ffdd76290118718d52d71f.svg'/>
@@ -78,7 +138,8 @@ export const Navbar = () => {
     
     </HStack>
     </Link>
-    <Link to="/log">
+
+    <Link to="/policy">
     <HStack bg="white" p={3} borderRadius={25} spacing={5}>
   
     <Text><RiFileCopy2Line/></Text>
@@ -86,7 +147,8 @@ export const Navbar = () => {
     
     </HStack>
     </Link>
-    <Link to="/log">
+
+    <Link to="/hostpo">
     <HStack bg="white" p={3} borderRadius={25} spacing={5}>
   
     <Text><RiFileCopy2Line/></Text>
@@ -94,11 +156,32 @@ export const Navbar = () => {
     
     </HStack>
     </Link>
-    <Link to="/log">
+
+    <Link to="/contact">
     <HStack bg="white" p={3} borderRadius={25} spacing={5}>
   
+
     <Text><FiPhoneCall/></Text>
     <Text>Help & Support</Text>
+    
+    </HStack>
+    </Link>
+
+    <Link to="/refer">
+    <HStack bg="white" p={3} borderRadius={25} spacing={5}>
+  
+  
+    <Text><FiPhoneCall/></Text>
+    <Text>Refer & Earn</Text>
+    
+    </HStack>
+    </Link>
+    <Link to="/faq">
+    <HStack bg="white" p={3} borderRadius={25} spacing={5}>
+  
+  
+    <Text><FiPhoneCall/></Text>
+    <Text>Faqs</Text>
     
     </HStack>
     </Link>

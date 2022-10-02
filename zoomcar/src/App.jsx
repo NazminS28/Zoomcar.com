@@ -4,6 +4,10 @@ import { Navbar } from './Components/Navbar';
 import { AllRoutes } from './Routes/AllRoutes';
 import { Stack } from '@chakra-ui/react';
 import { Landing } from './Components/Landing';
+import { Contact } from './Pages/Contact';
+import { Faqs } from './Pages/Faqs';
+import { ReferEarn } from './Pages/ReferEarn';
+import { Policies } from './Pages/Policies';
 
 
 function App() {
@@ -11,7 +15,10 @@ function App() {
     <Stack>
       <Navbar/>
       <AllRoutes/>
-      
+      {/* <Contact/> */}
+      {/* <Faqs/> */}
+      {/* <ReferEarn/> */}
+      {/* <Policies/> */}
     </Stack>
   );
 }
